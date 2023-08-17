@@ -7,7 +7,7 @@ import { Live2DModel } from '../src';
 Live2DModel.registerTicker(Ticker);
 
 const canvas = document.getElementById('canvas') as HTMLCanvasElement;
-const modelURL = 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json';
+const modelURL = '/core/model/live2d/hiyori_pro_zh/runtime/hiyori_pro_t11.model3.json';
 
 async function main() {
     const app = new Application({
@@ -17,6 +17,8 @@ async function main() {
     (window as any).app = app;
 
     const model = await Live2DModel.from(modelURL);
+
+    model.scale.set(.2)
 
     app.stage.addChild(model);
 }
